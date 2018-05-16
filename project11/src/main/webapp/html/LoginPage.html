@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Reimbursement Portal</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="tab">
+  <button class="tablinks" onclick="openLogin(event, 'EmployeeLogin')">Employee Login</button>
+  <button class="tablinks" onclick="openLogin(event, 'ManagerLogin')">Manager Login</button>
+</div>
+
+
+<div id="EmployeeLogin" class="tabcontent">
+<h3>Employee</h3>
+  <div class="login">
+    <form method="post" action="/project11/employeeLogin.do">
+        <input  type="text" name="eUser" placeholder="Employee Username" required="required" />
+        <input  type="password" name="ePass" placeholder="Password" required="required" />
+        <button id="eButton" type="submit" class="btn btn-primary btn-block btn-small">Login</button>
+    </form>
+</div>
+</div>
+
+
+<div id="ManagerLogin" class="tabcontent">
+<h3>Manager</h3>
+  <div class="login">
+    <form method="post" action="/project11/managerLogin.do">
+        <input name="mUser" type="text" placeholder="Manager Username" required="required" />
+        <input name="mPass" type="password" placeholder="Password" required="required" />
+        <button id="mButton" type="submit" class="btn btn-primary btn-block btn-small">Login</button>
+    </form>
+</div>
+</div>
+
+
+<script type="text/javascript" src="../js/LoginPage.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>

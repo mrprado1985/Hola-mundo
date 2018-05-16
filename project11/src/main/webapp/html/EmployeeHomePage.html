@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Employee Home</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><strong>Reimbursement Portal</strong></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="tablinks" onclick="openLogin(event, 'EmployeeHome')"><a href="#">Logout <span class="sr-only">(current)</span></a></li>
+        <li class="tablinks" onclick="openLogin(event, 'EmployeeView')"><a href="#">Profile <span class="sr-only">(current)</span></a></li>
+        <li class="tablinks" onclick="openLogin(event, 'EmployeeEdit')"><a href="#">Edit Profile <span class="sr-only">(current)</span></a></li>
+        <li class="tablinks" onclick="openLogin(event, 'EmployeeRequest')"><a href="#">Submit Request <span class="sr-only">(current)</span></a></li>
+        <li class="tablinks" onclick="openLogin(event, 'PendingRequest')"><a href="#">Pending Request<span class="sr-only">(current)</span></a></li>
+        <li class="tablinks" onclick="openLogin(event, 'ResolvedRequest')"><a href="#">Resolved Request <span class="sr-only">(current)</span></a></li>
+       
+
+        
+      </ul>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Tabs -->
+<!-- <div class="tab">
+	<button class="tablinks" onclick="openLogin(event, 'EmployeeHome')">Employee Home</button>
+ 	<button class="tablinks" onclick="openLogin(event, 'EmployeeView')">View Profile</button>
+ 	<button class="tablinks" onclick="openLogin(event, 'EmployeeEdit')">Edit Profile</button>
+ 	<button class="tablinks" onclick="openLogin(event, 'EmployeeRequest')">Make Reimbursement Requests</button>
+ 	<button class="tablinks" onclick="openLogin(event, 'PendingRequest')">Pending Reimbursement Requests</button>
+ 	<button class="tablinks" onclick="openLogin(event, 'ResolvedRequest')">Resolved Reimbursement Requests</button>
+</div> -->
+
+
+<div id="EmployeeHome" class="collapse">
+<h3>Home</h3>
+  <div class="login">
+   <form method="post" action="/project11/employeeLogout.do">
+  <input class="btn btn-primary btn-block btn-small" type="submit" value="Logout">
+  </form>
+</div>
+</div>
+
+
+<div id="EmployeeView" class="collapse">
+<h3>Your Account Information</h3>
+  <div class="login">
+  <form method="post" action="/project11/myEmployee.do">
+  <table>  
+<tr><td colspan="2"><input type="button" onclick="loadmyEmployee()" value="View Your Account Information"/></td></tr>  
+</table>
+  </form>
+</div>
+</div>
+
+
+ <div id="EmployeeEdit" class="collapse">
+ <h3>Edit Account Information</h3>
+ <div class="login">
+ <form method="post" action="/project11/editEmployee.do">
+	<table>
+		<tr>
+			<td>First Name</td>
+			<td><input type="text" name="firstName" size="25" required></td>
+		</tr>
+		<tr>
+			<td>Last Name</td>
+			<td><input type="text" name="lastName" size="25" required></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><input type="text" name="email" size="25" required></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="text" name="ePass" size="25" required></td>
+		</tr>
+	</table>
+	<p>
+		<input class="btn btn-primary btn-block btn-small" type="submit" value="Edit Information">
+	</p>
+</form>
+</div>
+</div>
+
+
+ <div id="EmployeeRequest" class="collapse">
+ <h3>*New Reimbursement Requests</h3>
+ <div class="login">
+ <form action="/project11/submitRequest.do" method="post">  
+<table>  
+<tr><td>Amount:</td><td><input type="text" name="requestAmount" required/></td></tr> 
+<tr><td>Category:</td><td><input type="text" name="purpose" required/></td></tr> 
+<tr><td>Receipt picture:</td><td><input type="file" name="fileToUpload" id="fileToUpload">
+<tr><td colspan="2"><input type="submit" value="Submit New Request"/></td></tr>  
+</table>
+</form>
+</div>
+</div>
+
+
+ <div id="PendingRequest" class="collapse">
+ <h3>Pending Reimbursement Requests</h3>
+ <div class="login">
+ <form action="/project11/specificPendingRequests.do" method="post">  
+	<input type="button" onclick="loadmyPendingRequests()" value="View all pending requests">
+</form>
+</div>
+</div>
+
+
+ <div id="ResolvedRequest" class="collapse">
+ <h3>View Pending Reimbursement Requests</h3>
+ <div class="login">
+ <form action="/project11/specificResolvedRequests.do" method="post">
+   <table>  
+		<tr><td colspan="2"><input type="button" onclick="loadmyResolvedRequests()" value="View Resolved Reimbursement Requests"/></td></tr>  
+	</table> 
+</form>
+</div>
+</div>
+
+</div>
+<!-- JavaScript link -->
+<script type="text/javascript" src="../js/EmployeeHomePage.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>
