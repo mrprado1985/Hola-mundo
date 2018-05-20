@@ -26,7 +26,7 @@ public class ConnectionUtil {
 		InputStream in = null;
 		try{
 			Properties props = new Properties();
-			in = ConnectionUtil.class.getClassLoader().getResourceAsStream("db.properties");
+			in = new FileInputStream("C:\\Users\\mrpra\\Documents\\workspace-sts-3.9.4.RELEASE\\Project1\\src\\main\\resources\\db.properties");
 			props.load(in);
 			return DriverManager.getConnection(props.getProperty("jdbc.url"), props.getProperty("jdbc.username"),
 						props.getProperty("jdbc.password"));
